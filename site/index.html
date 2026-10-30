@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scènes cultes</title>
+<style>
+:root { --bg:#111; --card:#1b1b1b; --fg:#eee; --mute:#9a9a9a; --accent:#f5c518; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, sans-serif; }
+header { padding:28px 16px 8px; max-width:1500px; margin:auto; }
+h1 { margin:0 0 6px; font-size:28px; } h1 span { color:var(--accent); }
+header p { color:var(--mute); margin:4px 0; max-width:900px; }
+main { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap:18px; padding:16px; max-width:1500px; margin:auto; }
+.card { background:var(--card); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; }
+.still img { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; background:#000; }
+.body { padding:12px 14px 14px; }
+blockquote { margin:0 0 8px; font-size:18px; font-style:italic; }
+blockquote::before { content:"« "; color:var(--accent); } blockquote::after { content:" »"; color:var(--accent); }
+.film { margin:0; font-weight:600; } .film span { color:var(--mute); font-weight:400; }
+.who { margin:0 0 8px; color:var(--mute); }
+.sub { margin:0 0 6px; font-size:13px; color:#cfcfcf; }
+.tc { font-family:ui-monospace, monospace; color:var(--accent); margin-right:6px; }
+.meta { margin:0; font-size:12px; color:var(--mute); } .meta a { color:var(--mute); }
+.alts { display:flex; gap:6px; margin-top:8px; } .alts img { width:96px; aspect-ratio:16/9; object-fit:cover; border-radius:4px; opacity:.75; }
+.alts img:hover { opacity:1; }
+section.misses { max-width:1500px; margin:auto; padding:0 16px 40px; color:var(--mute); }
+</style></head>
+<body>
+<header>
+  <h1>Scènes <span>cultes</span></h1>
+  <p>59 répliques célèbres retrouvées dans les films de la bibliothèque Plex, sur 118 essayées, chacune avec la meilleure image de sa scène.
+     Aucun modèle de langage : la réplique est alignée sur la piste de sous-titres par rapidfuzz, les images sont extraites par ffmpeg,
+     et l'image retenue est choisie sur la netteté (Laplacien, Tenengrad), les visages et leur cadrage (détecteur YuNet), l'exposition et l'éloignement des changements de plan.
+     Les deux vignettes sont les images classées juste après. Le minutage est celui de l'image retenue.</p>
+  <p>iconic-scenes 0.1.0 · 2026-10-30</p>
+</header>
+<main>
+<article class="card">
+  <a class="still" href="img/taxi-driver.jpg" target="_blank"><img src="img/taxi-driver.jpg" alt="Taxi Driver" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">You talkin&#x27; to me?</blockquote>
+    <p class="film">Taxi Driver <span>(1976)</span></p>
+    <p class="who">Robert De Niro (Travis Bickle)</p>
+    <p class="sub"><span class="tc">1:06:54</span> Well, then who the hell else are you talking to? You talking to me?</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 94 % · visages 1 · netteté 100 · 1036p ·
+      <a href="https://www.themoviedb.org/movie/103" target="_blank">TMDb 103</a></p>
+    <div class="alts"><a href="img/taxi-driver-alt1.jpg" target="_blank"><img src="img/taxi-driver-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/taxi-driver-alt2.jpg" target="_blank"><img src="img/taxi-driver-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/tontons-flingueurs.jpg" target="_blank"><img src="img/tontons-flingueurs.jpg" alt="Les Tontons flingueurs" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="fr">Il connaît pas Raoul, ce mec ! Il va avoir un réveil pénible.</blockquote>
+    <p class="film">Les Tontons flingueurs <span>(1963)</span></p>
+    <p class="who">Bernard Blier (Raoul Volfoni)</p>
+    <p class="sub"><span class="tc">0:41:10</span> Mais il connaît pas Raoul, ce mec. / Il va avoir un réveil pénible.</p>
+    <p class="meta">reconnaissance vocale locale · correspondance 100 % · visages 3 · netteté 244 · 1072p ·
+      <a href="https://www.themoviedb.org/movie/25253" target="_blank">TMDb 25253</a></p>
+    <div class="alts"><a href="img/tontons-flingueurs-alt1.jpg" target="_blank"><img src="img/tontons-flingueurs-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/tontons-flingueurs-alt2.jpg" target="_blank"><img src="img/tontons-flingueurs-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/godfather.jpg" target="_blank"><img src="img/godfather.jpg" alt="The Godfather" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I&#x27;m gonna make him an offer he can&#x27;t refuse.</blockquote>
+    <p class="film">The Godfather <span>(1972)</span></p>
+    <p class="who">Marlon Brando (Vito Corleone)</p>
+    <p class="sub"><span class="tc">0:24:22</span> I&#x27;m going to make him an offer he can&#x27;t refuse.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 88 % · visages 2 · netteté 24 · 1036p ·
+      <a href="https://www.themoviedb.org/movie/238" target="_blank">TMDb 238</a></p>
+    <div class="alts"><a href="img/godfather-alt1.jpg" target="_blank"><img src="img/godfather-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/godfather-alt2.jpg" target="_blank"><img src="img/godfather-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/casablanca.jpg" target="_blank"><img src="img/casablanca.jpg" alt="Casablanca" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Here&#x27;s looking at you, kid.</blockquote>
+    <p class="film">Casablanca <span>(1942)</span></p>
+    <p class="who">Humphrey Bogart (Rick Blaine)</p>
+    <p class="sub"><span class="tc">1:37:38</span> Here&#x27;s looking at you, kid.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 23 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/289" target="_blank">TMDb 289</a></p>
+    <div class="alts"><a href="img/casablanca-alt1.jpg" target="_blank"><img src="img/casablanca-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/casablanca-alt2.jpg" target="_blank"><img src="img/casablanca-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/gone-with-the-wind.jpg" target="_blank"><img src="img/gone-with-the-wind.jpg" alt="Gone with the Wind" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Frankly, my dear, I don&#x27;t give a damn.</blockquote>
+    <p class="film">Gone with the Wind <span>(1939)</span></p>
+    <p class="who">Clark Gable (Rhett Butler)</p>
+    <p class="sub"><span class="tc">3:46:35</span> Frankly, my dear, I don&#x27;t give a damn.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 14 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/770" target="_blank">TMDb 770</a></p>
+    <div class="alts"><a href="img/gone-with-the-wind-alt1.jpg" target="_blank"><img src="img/gone-with-the-wind-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/gone-with-the-wind-alt2.jpg" target="_blank"><img src="img/gone-with-the-wind-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/terminator.jpg" target="_blank"><img src="img/terminator.jpg" alt="The Terminator" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I&#x27;ll be back.</blockquote>
+    <p class="film">The Terminator <span>(1984)</span></p>
+    <p class="who">Arnold Schwarzenegger (The Terminator)</p>
+    <p class="sub"><span class="tc">0:59:46</span> I&#x27;ll be back.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 1 · netteté 82 · 1040p ·
+      <a href="https://www.themoviedb.org/movie/218" target="_blank">TMDb 218</a></p>
+    <div class="alts"><a href="img/terminator-alt1.jpg" target="_blank"><img src="img/terminator-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/terminator-alt2.jpg" target="_blank"><img src="img/terminator-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/shining.jpg" target="_blank"><img src="img/shining.jpg" alt="The Shining" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Here&#x27;s Johnny!</blockquote>
+    <p class="film">The Shining <span>(1980)</span></p>
+    <p class="who">Jack Nicholson (Jack Torrance)</p>
+    <p class="sub"><span class="tc">2:04:22</span> Here&#x27;s Johnny!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 86 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/694" target="_blank">TMDb 694</a></p>
+    <div class="alts"><a href="img/shining-alt1.jpg" target="_blank"><img src="img/shining-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/shining-alt2.jpg" target="_blank"><img src="img/shining-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/jaws.jpg" target="_blank"><img src="img/jaws.jpg" alt="Jaws" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">You&#x27;re gonna need a bigger boat.</blockquote>
+    <p class="film">Jaws <span>(1975)</span></p>
+    <p class="who">Roy Scheider (Martin Brody)</p>
+    <p class="sub"><span class="tc">1:21:27</span> You&#x27;re going to need a bigger boat.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 83 % · visages 2 · netteté 280 · 816p ·
+      <a href="https://www.themoviedb.org/movie/578" target="_blank">TMDb 578</a></p>
+    <div class="alts"><a href="img/jaws-alt1.jpg" target="_blank"><img src="img/jaws-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/jaws-alt2.jpg" target="_blank"><img src="img/jaws-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/sixth-sense.jpg" target="_blank"><img src="img/sixth-sense.jpg" alt="The Sixth Sense" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I see dead people.</blockquote>
+    <p class="film">The Sixth Sense <span>(1999)</span></p>
+    <p class="who">Haley Joel Osment (Cole Sear)</p>
+    <p class="sub"><span class="tc">0:50:28</span> I see dead people.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 1 · netteté 76 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/745" target="_blank">TMDb 745</a></p>
+    <div class="alts"><a href="img/sixth-sense-alt1.jpg" target="_blank"><img src="img/sixth-sense-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/sixth-sense-alt2.jpg" target="_blank"><img src="img/sixth-sense-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/scarface.jpg" target="_blank"><img src="img/scarface.jpg" alt="Scarface" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Say hello to my little friend!</blockquote>
+    <p class="film">Scarface <span>(1983)</span></p>
+    <p class="who">Al Pacino (Tony Montana)</p>
+    <p class="sub"><span class="tc">2:40:45</span> Say hello to my little friend!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 567 · 816p ·
+      <a href="https://www.themoviedb.org/movie/111" target="_blank">TMDb 111</a></p>
+    <div class="alts"><a href="img/scarface-alt1.jpg" target="_blank"><img src="img/scarface-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/scarface-alt2.jpg" target="_blank"><img src="img/scarface-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/some-like-it-hot.jpg" target="_blank"><img src="img/some-like-it-hot.jpg" alt="Some Like It Hot" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Well, nobody&#x27;s perfect.</blockquote>
+    <p class="film">Some Like It Hot <span>(1959)</span></p>
+    <p class="who">Joe E. Brown (Osgood Fielding III)</p>
+    <p class="sub"><span class="tc">2:01:04</span> Well, nobody&#x27;s perfect.  </p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 2 · netteté 96 · 1036p ·
+      <a href="https://www.themoviedb.org/movie/239" target="_blank">TMDb 239</a></p>
+    <div class="alts"><a href="img/some-like-it-hot-alt1.jpg" target="_blank"><img src="img/some-like-it-hot-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/some-like-it-hot-alt2.jpg" target="_blank"><img src="img/some-like-it-hot-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/dr-no.jpg" target="_blank"><img src="img/dr-no.jpg" alt="Dr. No" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Bond. James Bond.</blockquote>
+    <p class="film">Dr. No <span>(1962)</span></p>
+    <p class="who">Sean Connery (James Bond)</p>
+    <p class="sub"><span class="tc">0:07:59</span> Bond. / James Bond.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 2 · netteté 55 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/646" target="_blank">TMDb 646</a></p>
+    <div class="alts"><a href="img/dr-no-alt1.jpg" target="_blank"><img src="img/dr-no-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/dr-no-alt2.jpg" target="_blank"><img src="img/dr-no-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/forrest-gump.jpg" target="_blank"><img src="img/forrest-gump.jpg" alt="Forrest Gump" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">My mama always said life was like a box of chocolates. You never know what you&#x27;re gonna get.</blockquote>
+    <p class="film">Forrest Gump <span>(1994)</span></p>
+    <p class="who">Tom Hanks (Forrest Gump)</p>
+    <p class="sub"><span class="tc">0:03:47</span> My mama always said life was like a box of chocolates. / You never know what you&#x27;re gonna get.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 2 · netteté 909 · 804p ·
+      <a href="https://www.themoviedb.org/movie/13" target="_blank">TMDb 13</a></p>
+    <div class="alts"><a href="img/forrest-gump-alt1.jpg" target="_blank"><img src="img/forrest-gump-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/forrest-gump-alt2.jpg" target="_blank"><img src="img/forrest-gump-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/dark-knight.jpg" target="_blank"><img src="img/dark-knight.jpg" alt="The Dark Knight" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Why so serious?</blockquote>
+    <p class="film">The Dark Knight <span>(2008)</span></p>
+    <p class="who">Heath Ledger (The Joker)</p>
+    <p class="sub"><span class="tc">0:30:45</span> &quot;Why so serious?&quot;</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 1 · netteté 84 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/155" target="_blank">TMDb 155</a></p>
+    <div class="alts"><a href="img/dark-knight-alt1.jpg" target="_blank"><img src="img/dark-knight-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/dark-knight-alt2.jpg" target="_blank"><img src="img/dark-knight-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/a-few-good-men.jpg" target="_blank"><img src="img/a-few-good-men.jpg" alt="A Few Good Men" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">You can&#x27;t handle the truth!</blockquote>
+    <p class="film">A Few Good Men <span>(1992)</span></p>
+    <p class="who">Jack Nicholson (Col. Jessup)</p>
+    <p class="sub"><span class="tc">2:06:37</span> You can&#x27;t handle the truth!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 22 · 816p ·
+      <a href="https://www.themoviedb.org/movie/881" target="_blank">TMDb 881</a></p>
+    <div class="alts"><a href="img/a-few-good-men-alt1.jpg" target="_blank"><img src="img/a-few-good-men-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/a-few-good-men-alt2.jpg" target="_blank"><img src="img/a-few-good-men-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/midnight-cowboy.jpg" target="_blank"><img src="img/midnight-cowboy.jpg" alt="Midnight Cowboy" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I&#x27;m walking here!</blockquote>
+    <p class="film">Midnight Cowboy <span>(1969)</span></p>
+    <p class="who">Dustin Hoffman (Ratso Rizzo)</p>
+    <p class="sub"><span class="tc">0:28:13</span> I&#x27;m walkin&#x27; here!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 93 % · visages 8 · netteté 118 · 1036p ·
+      <a href="https://www.themoviedb.org/movie/3116" target="_blank">TMDb 3116</a></p>
+    <div class="alts"><a href="img/midnight-cowboy-alt1.jpg" target="_blank"><img src="img/midnight-cowboy-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/midnight-cowboy-alt2.jpg" target="_blank"><img src="img/midnight-cowboy-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/godfather-2.jpg" target="_blank"><img src="img/godfather-2.jpg" alt="The Godfather Part II" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">My father taught me many things here. Keep your friends close, but your enemies closer.</blockquote>
+    <p class="film">The Godfather Part II <span>(1974)</span></p>
+    <p class="who">Al Pacino (Michael Corleone)</p>
+    <p class="sub"><span class="tc">1:08:33</span> My father taught me many things here. He taught me in this room. / He taught me, / &quot;keep your friends close, but your enemies closer.&quot;</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 82 % · visages 2 · netteté 192 · 1036p ·
+      <a href="https://www.themoviedb.org/movie/240" target="_blank">TMDb 240</a></p>
+    <div class="alts"><a href="img/godfather-2-alt1.jpg" target="_blank"><img src="img/godfather-2-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/godfather-2-alt2.jpg" target="_blank"><img src="img/godfather-2-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/wizard-of-oz.jpg" target="_blank"><img src="img/wizard-of-oz.jpg" alt="The Wizard of Oz" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">There&#x27;s no place like home.</blockquote>
+    <p class="film">The Wizard of Oz <span>(1939)</span></p>
+    <p class="who">Judy Garland (Dorothy)</p>
+    <p class="sub"><span class="tc">1:39:28</span> AUNTIE EM: Wake up, honey. -There&#x27;s no place like home.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 60 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/630" target="_blank">TMDb 630</a></p>
+    <div class="alts"><a href="img/wizard-of-oz-alt1.jpg" target="_blank"><img src="img/wizard-of-oz-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/wizard-of-oz-alt2.jpg" target="_blank"><img src="img/wizard-of-oz-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/dr-strangelove.jpg" target="_blank"><img src="img/dr-strangelove.jpg" alt="Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Gentlemen, you can&#x27;t fight in here! This is the War Room!</blockquote>
+    <p class="film">Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb <span>(1964)</span></p>
+    <p class="who">Peter Sellers (President Muffley)</p>
+    <p class="sub"><span class="tc">0:38:00</span> Gentlemen, you can&#x27;t fight in here! This is the war room!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 4 · netteté 75 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/935" target="_blank">TMDb 935</a></p>
+    <div class="alts"><a href="img/dr-strangelove-alt1.jpg" target="_blank"><img src="img/dr-strangelove-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/dr-strangelove-alt2.jpg" target="_blank"><img src="img/dr-strangelove-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/graduate.jpg" target="_blank"><img src="img/graduate.jpg" alt="The Graduate" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Mrs. Robinson, you&#x27;re trying to seduce me.</blockquote>
+    <p class="film">The Graduate <span>(1967)</span></p>
+    <p class="who">Dustin Hoffman (Benjamin Braddock)</p>
+    <p class="sub"><span class="tc">0:12:59</span> Mrs. Robinson, you&#x27;re trying to seduce me.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 127 · 808p ·
+      <a href="https://www.themoviedb.org/movie/37247" target="_blank">TMDb 37247</a></p>
+    <div class="alts"><a href="img/graduate-alt1.jpg" target="_blank"><img src="img/graduate-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/graduate-alt2.jpg" target="_blank"><img src="img/graduate-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/die-hard.jpg" target="_blank"><img src="img/die-hard.jpg" alt="Die Hard" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Yippee-ki-yay, motherfucker.</blockquote>
+    <p class="film">Die Hard <span>(1988)</span></p>
+    <p class="who">Bruce Willis (John McClane)</p>
+    <p class="sub"><span class="tc">1:00:42</span> Yippee-ki-yea, motherfucker.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 96 % · visages 1 · netteté 70 · 812p ·
+      <a href="https://www.themoviedb.org/movie/562" target="_blank">TMDb 562</a></p>
+    <div class="alts"><a href="img/die-hard-alt1.jpg" target="_blank"><img src="img/die-hard-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/die-hard-alt2.jpg" target="_blank"><img src="img/die-hard-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/network.jpg" target="_blank"><img src="img/network.jpg" alt="Network" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I&#x27;m as mad as hell, and I&#x27;m not going to take this anymore!</blockquote>
+    <p class="film">Network <span>(1976)</span></p>
+    <p class="who">Peter Finch (Howard Beale)</p>
+    <p class="sub"><span class="tc">0:55:25</span> &quot;I&#x27;m as mad as hell and I&#x27;m not going to take this anymore!&quot;</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 2 · netteté 70 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/10774" target="_blank">TMDb 10774</a></p>
+    <div class="alts"><a href="img/network-alt1.jpg" target="_blank"><img src="img/network-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/network-alt2.jpg" target="_blank"><img src="img/network-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/silence-of-the-lambs.jpg" target="_blank"><img src="img/silence-of-the-lambs.jpg" alt="The Silence of the Lambs" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">A census taker once tried to test me. I ate his liver with some fava beans and a nice chianti.</blockquote>
+    <p class="film">The Silence of the Lambs <span>(1991)</span></p>
+    <p class="who">Anthony Hopkins (Hannibal Lecter)</p>
+    <p class="sub"><span class="tc">0:18:29</span> A census taker once tried to test me. / I ate his liver with some fava beans / and a nice Chianti.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 54 · 1038p ·
+      <a href="https://www.themoviedb.org/movie/274" target="_blank">TMDb 274</a></p>
+    <div class="alts"><a href="img/silence-of-the-lambs-alt1.jpg" target="_blank"><img src="img/silence-of-the-lambs-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/silence-of-the-lambs-alt2.jpg" target="_blank"><img src="img/silence-of-the-lambs-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/fight-club.jpg" target="_blank"><img src="img/fight-club.jpg" alt="Fight Club" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">The first rule of Fight Club is: you do not talk about Fight Club.</blockquote>
+    <p class="film">Fight Club <span>(1999)</span></p>
+    <p class="who">Brad Pitt (Tyler Durden)</p>
+    <p class="sub"><span class="tc">0:42:58</span> The first rule of Fight Club is you do not talk about Fight Club.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 7 · netteté 39 · 800p ·
+      <a href="https://www.themoviedb.org/movie/550" target="_blank">TMDb 550</a></p>
+    <div class="alts"><a href="img/fight-club-alt1.jpg" target="_blank"><img src="img/fight-club-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/fight-club-alt2.jpg" target="_blank"><img src="img/fight-club-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/back-to-the-future.jpg" target="_blank"><img src="img/back-to-the-future.jpg" alt="Back to the Future" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Roads? Where we&#x27;re going, we don&#x27;t need roads.</blockquote>
+    <p class="film">Back to the Future <span>(1985)</span></p>
+    <p class="who">Christopher Lloyd (Doc Brown)</p>
+    <p class="sub"><span class="tc">1:51:38</span> Roads? Where we&#x27;re going, we don&#x27;t need roads.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 3 · netteté 140 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/105" target="_blank">TMDb 105</a></p>
+    <div class="alts"><a href="img/back-to-the-future-alt1.jpg" target="_blank"><img src="img/back-to-the-future-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/back-to-the-future-alt2.jpg" target="_blank"><img src="img/back-to-the-future-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/dead-poets-society.jpg" target="_blank"><img src="img/dead-poets-society.jpg" alt="Dead Poets Society" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Carpe diem. Seize the day, boys.</blockquote>
+    <p class="film">Dead Poets Society <span>(1989)</span></p>
+    <p class="who">Robin Williams (John Keating)</p>
+    <p class="sub"><span class="tc">0:16:22</span> Carpe diem. / Seize the day, boys.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 3 · netteté 11 · 1036p ·
+      <a href="https://www.themoviedb.org/movie/207" target="_blank">TMDb 207</a></p>
+    <div class="alts"><a href="img/dead-poets-society-alt1.jpg" target="_blank"><img src="img/dead-poets-society-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/dead-poets-society-alt2.jpg" target="_blank"><img src="img/dead-poets-society-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/big-lebowski.jpg" target="_blank"><img src="img/big-lebowski.jpg" alt="The Big Lebowski" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Yeah, well, you know, that&#x27;s just, like, your opinion, man.</blockquote>
+    <p class="film">The Big Lebowski <span>(1998)</span></p>
+    <p class="who">Jeff Bridges (The Dude)</p>
+    <p class="sub"><span class="tc">0:28:52</span> Yeah? Well, you know, that&#x27;s just like your opinion, man.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 3 · netteté 120 · 1038p ·
+      <a href="https://www.themoviedb.org/movie/115" target="_blank">TMDb 115</a></p>
+    <div class="alts"><a href="img/big-lebowski-alt1.jpg" target="_blank"><img src="img/big-lebowski-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/big-lebowski-alt2.jpg" target="_blank"><img src="img/big-lebowski-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/2001.jpg" target="_blank"><img src="img/2001.jpg" alt="2001: A Space Odyssey" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I&#x27;m sorry, Dave. I&#x27;m afraid I can&#x27;t do that.</blockquote>
+    <p class="film">2001: A Space Odyssey <span>(1968)</span></p>
+    <p class="who">Douglas Rain (HAL 9000)</p>
+    <p class="sub"><span class="tc">1:41:37</span> I&#x27;m sorry, Dave. I&#x27;m afraid I can&#x27;t do that.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 0 · netteté 285 · 872p ·
+      <a href="https://www.themoviedb.org/movie/62" target="_blank">TMDb 62</a></p>
+    <div class="alts"><a href="img/2001-alt1.jpg" target="_blank"><img src="img/2001-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/2001-alt2.jpg" target="_blank"><img src="img/2001-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/sunset-boulevard.jpg" target="_blank"><img src="img/sunset-boulevard.jpg" alt="Sunset Boulevard" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">All right, Mr. DeMille, I&#x27;m ready for my close-up.</blockquote>
+    <p class="film">Sunset Boulevard <span>(1950)</span></p>
+    <p class="who">Gloria Swanson (Norma Desmond)</p>
+    <p class="sub"><span class="tc">1:49:28</span> All right, Mr. DeMille, I&#x27;m ready for my close-up.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 3 · netteté 92 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/599" target="_blank">TMDb 599</a></p>
+    <div class="alts"><a href="img/sunset-boulevard-alt1.jpg" target="_blank"><img src="img/sunset-boulevard-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/sunset-boulevard-alt2.jpg" target="_blank"><img src="img/sunset-boulevard-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/toy-story.jpg" target="_blank"><img src="img/toy-story.jpg" alt="Toy Story" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">To infinity and beyond!</blockquote>
+    <p class="film">Toy Story <span>(1995)</span></p>
+    <p class="who">Tim Allen (Buzz Lightyear)</p>
+    <p class="sub"><span class="tc">0:19:15</span> To infinity and beyond!</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 1 · netteté 460 · 2160p HDR→SDR ·
+      <a href="https://www.themoviedb.org/movie/862" target="_blank">TMDb 862</a></p>
+    <div class="alts"><a href="img/toy-story-alt1.jpg" target="_blank"><img src="img/toy-story-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/toy-story-alt2.jpg" target="_blank"><img src="img/toy-story-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/matrix.jpg" target="_blank"><img src="img/matrix.jpg" alt="The Matrix" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">There is no spoon.</blockquote>
+    <p class="film">The Matrix <span>(1999)</span></p>
+    <p class="who">Keanu Reeves (Neo)</p>
+    <p class="sub"><span class="tc">1:12:04</span> There is no spoon?</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 129 · 800p ·
+      <a href="https://www.themoviedb.org/movie/603" target="_blank">TMDb 603</a></p>
+    <div class="alts"><a href="img/matrix-alt1.jpg" target="_blank"><img src="img/matrix-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/matrix-alt2.jpg" target="_blank"><img src="img/matrix-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/psycho.jpg" target="_blank"><img src="img/psycho.jpg" alt="Psycho" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">A boy&#x27;s best friend is his mother.</blockquote>
+    <p class="film">Psycho <span>(1960)</span></p>
+    <p class="who">Anthony Perkins (Norman Bates)</p>
+    <p class="sub"><span class="tc">0:37:16</span> Well, a boy&#x27;s best friend is his mother.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 497 · 1040p ·
+      <a href="https://www.themoviedb.org/movie/539" target="_blank">TMDb 539</a></p>
+    <div class="alts"><a href="img/psycho-alt1.jpg" target="_blank"><img src="img/psycho-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/psycho-alt2.jpg" target="_blank"><img src="img/psycho-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/dirty-harry.jpg" target="_blank"><img src="img/dirty-harry.jpg" alt="Dirty Harry" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">You&#x27;ve got to ask yourself one question: Do I feel lucky? Well, do ya, punk?</blockquote>
+    <p class="film">Dirty Harry <span>(1971)</span></p>
+    <p class="who">Clint Eastwood (Harry Callahan)</p>
+    <p class="sub"><span class="tc">0:13:56</span> ...you&#x27;ve got to ask yourself one question: &quot;Do I feel lucky?&quot; / Well, do you, punk?</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 97 % · visages 1 · netteté 230 · 800p ·
+      <a href="https://www.themoviedb.org/movie/984" target="_blank">TMDb 984</a></p>
+    <div class="alts"><a href="img/dirty-harry-alt1.jpg" target="_blank"><img src="img/dirty-harry-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/dirty-harry-alt2.jpg" target="_blank"><img src="img/dirty-harry-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/planet-of-the-apes.jpg" target="_blank"><img src="img/planet-of-the-apes.jpg" alt="Planet of the Apes" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Take your stinking paws off me, you damned dirty ape!</blockquote>
+    <p class="film">Planet of the Apes <span>(1968)</span></p>
+    <p class="who">Charlton Heston (George Taylor)</p>
+    <p class="sub"><span class="tc">1:00:05</span> Take your stinking paws off me, you damn dirty ape.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 96 % · visages 9 · netteté 199 · 816p ·
+      <a href="https://www.themoviedb.org/movie/871" target="_blank">TMDb 871</a></p>
+    <div class="alts"><a href="img/planet-of-the-apes-alt1.jpg" target="_blank"><img src="img/planet-of-the-apes-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/planet-of-the-apes-alt2.jpg" target="_blank"><img src="img/planet-of-the-apes-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/good-bad-ugly.jpg" target="_blank"><img src="img/good-bad-ugly.jpg" alt="The Good, the Bad and the Ugly" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">You see, in this world there&#x27;s two kinds of people, my friend: those with loaded guns and those who dig. You dig.</blockquote>
+    <p class="film">The Good, the Bad and the Ugly <span>(1966)</span></p>
+    <p class="who">Clint Eastwood (Blondie)</p>
+    <p class="sub"><span class="tc">2:49:22</span> You see, in this world, there&#x27;s two kinds of people, my friend, / those with loaded guns, and those who dig. / You dig.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 2 · netteté 601 · 816p ·
+      <a href="https://www.themoviedb.org/movie/429" target="_blank">TMDb 429</a></p>
+    <div class="alts"><a href="img/good-bad-ugly-alt1.jpg" target="_blank"><img src="img/good-bad-ugly-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/good-bad-ugly-alt2.jpg" target="_blank"><img src="img/good-bad-ugly-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/north-by-northwest.jpg" target="_blank"><img src="img/north-by-northwest.jpg" alt="North by Northwest" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">That&#x27;s funny, that plane&#x27;s dustin&#x27; crops where there ain&#x27;t no crops.</blockquote>
+    <p class="film">North by Northwest <span>(1959)</span></p>
+    <p class="who">Cary Grant (Roger Thornhill)</p>
+    <p class="sub"><span class="tc">1:11:08</span> -That&#x27;s funny. -What? / That plane&#x27;s dusting crops where there ain&#x27;t no crops.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 90 % · visages 2 · netteté 65 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/213" target="_blank">TMDb 213</a></p>
+    <div class="alts"><a href="img/north-by-northwest-alt1.jpg" target="_blank"><img src="img/north-by-northwest-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/north-by-northwest-alt2.jpg" target="_blank"><img src="img/north-by-northwest-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/hotel-du-nord.jpg" target="_blank"><img src="img/hotel-du-nord.jpg" alt="Hôtel du Nord" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="fr">Atmosphère, atmosphère, est-ce que j&#x27;ai une gueule d&#x27;atmosphère ?</blockquote>
+    <p class="film">Hôtel du Nord <span>(1938)</span></p>
+    <p class="who">Arletty (Raymonde)</p>
+    <p class="sub"><span class="tc">1:02:39</span> Atmosphère, atmosphère… Est-ce que j&#x27;ai une gueule d&#x27;atmosphère ?</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 2 · netteté 136 · 1056p ·
+      <a href="https://www.themoviedb.org/movie/48369" target="_blank">TMDb 48369</a></p>
+    <div class="alts"><a href="img/hotel-du-nord-alt1.jpg" target="_blank"><img src="img/hotel-du-nord-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/hotel-du-nord-alt2.jpg" target="_blank"><img src="img/hotel-du-nord-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/oss-117.jpg" target="_blank"><img src="img/oss-117.jpg" alt="OSS 117 : Le Caire nid d&#x27;espions" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="fr">Comment est votre blanquette ?</blockquote>
+    <p class="film">OSS 117 : Le Caire nid d&#x27;espions <span>(2006)</span></p>
+    <p class="who">Jean Dujardin (Hubert Bonisseur de La Bath)</p>
+    <p class="sub"><span class="tc">0:07:19</span> - Comment est votre blanquette? - La blanquette est bonne.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 1 · netteté 210 · 818p ·
+      <a href="https://www.themoviedb.org/movie/15152" target="_blank">TMDb 15152</a></p>
+    <div class="alts"><a href="img/oss-117-alt1.jpg" target="_blank"><img src="img/oss-117-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/oss-117-alt2.jpg" target="_blank"><img src="img/oss-117-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/sudden-impact.jpg" target="_blank"><img src="img/sudden-impact.jpg" alt="Sudden Impact" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Go ahead, make my day.</blockquote>
+    <p class="film">Sudden Impact <span>(1983)</span></p>
+    <p class="who">Clint Eastwood (Harry Callahan)</p>
+    <p class="sub"><span class="tc">0:13:01</span> Go ahead... / ...make my day.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 101 · 796p ·
+      <a href="https://www.themoviedb.org/movie/10650" target="_blank">TMDb 10650</a></p>
+    <div class="alts"><a href="img/sudden-impact-alt1.jpg" target="_blank"><img src="img/sudden-impact-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/sudden-impact-alt2.jpg" target="_blank"><img src="img/sudden-impact-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/dirty-dancing.jpg" target="_blank"><img src="img/dirty-dancing.jpg" alt="Dirty Dancing" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Nobody puts Baby in a corner.</blockquote>
+    <p class="film">Dirty Dancing <span>(1987)</span></p>
+    <p class="who">Patrick Swayze (Johnny Castle)</p>
+    <p class="sub"><span class="tc">1:29:21</span> Nobody puts baby in a corner.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 20 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/88" target="_blank">TMDb 88</a></p>
+    <div class="alts"><a href="img/dirty-dancing-alt1.jpg" target="_blank"><img src="img/dirty-dancing-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/dirty-dancing-alt2.jpg" target="_blank"><img src="img/dirty-dancing-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/sierra-madre.jpg" target="_blank"><img src="img/sierra-madre.jpg" alt="The Treasure of the Sierra Madre" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Badges? We ain&#x27;t got no badges! We don&#x27;t need no badges! I don&#x27;t have to show you any stinkin&#x27; badges!</blockquote>
+    <p class="film">The Treasure of the Sierra Madre <span>(1948)</span></p>
+    <p class="who">Alfonso Bedoya (Gold Hat)</p>
+    <p class="sub"><span class="tc">1:07:27</span> BADGES? WE AIN&#x27;T GOT NO BADGES. / WE DON&#x27;T NEED NO BADGES. / I DON&#x27;T HAVE TO SHOW YOU ANY STINKIN&#x27; BADGES!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 3 · netteté 212 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/3090" target="_blank">TMDb 3090</a></p>
+    <div class="alts"><a href="img/sierra-madre-alt1.jpg" target="_blank"><img src="img/sierra-madre-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/sierra-madre-alt2.jpg" target="_blank"><img src="img/sierra-madre-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/on-the-waterfront.jpg" target="_blank"><img src="img/on-the-waterfront.jpg" alt="On the Waterfront" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I coulda been a contender.</blockquote>
+    <p class="film">On the Waterfront <span>(1954)</span></p>
+    <p class="who">Marlon Brando (Terry Malloy)</p>
+    <p class="sub"><span class="tc">1:14:52</span> I coulda been a contender.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 132 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/654" target="_blank">TMDb 654</a></p>
+    <div class="alts"><a href="img/on-the-waterfront-alt1.jpg" target="_blank"><img src="img/on-the-waterfront-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/on-the-waterfront-alt2.jpg" target="_blank"><img src="img/on-the-waterfront-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/white-heat.jpg" target="_blank"><img src="img/white-heat.jpg" alt="White Heat" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Made it, Ma! Top of the world!</blockquote>
+    <p class="film">White Heat <span>(1949)</span></p>
+    <p class="who">James Cagney (Cody Jarrett)</p>
+    <p class="sub"><span class="tc">1:52:44</span> Made it, Ma! Top of the world!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 155 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/15794" target="_blank">TMDb 15794</a></p>
+    <div class="alts"><a href="img/white-heat-alt1.jpg" target="_blank"><img src="img/white-heat-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/white-heat-alt2.jpg" target="_blank"><img src="img/white-heat-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/streetcar.jpg" target="_blank"><img src="img/streetcar.jpg" alt="A Streetcar Named Desire" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Hey, Stella!</blockquote>
+    <p class="film">A Streetcar Named Desire <span>(1951)</span></p>
+    <p class="who">Marlon Brando (Stanley Kowalski)</p>
+    <p class="sub"><span class="tc">0:41:39</span> Hey, Stella!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 0 · netteté 171 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/702" target="_blank">TMDb 702</a></p>
+    <div class="alts"><a href="img/streetcar-alt1.jpg" target="_blank"><img src="img/streetcar-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/streetcar-alt2.jpg" target="_blank"><img src="img/streetcar-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/soylent-green.jpg" target="_blank"><img src="img/soylent-green.jpg" alt="Soylent Green" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Soylent Green is people!</blockquote>
+    <p class="film">Soylent Green <span>(1973)</span></p>
+    <p class="who">Charlton Heston (Thorn)</p>
+    <p class="sub"><span class="tc">1:34:37</span> Soylent Green is people!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 10 · netteté 188 · 800p ·
+      <a href="https://www.themoviedb.org/movie/12101" target="_blank">TMDb 12101</a></p>
+    <div class="alts"><a href="img/soylent-green-alt1.jpg" target="_blank"><img src="img/soylent-green-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/soylent-green-alt2.jpg" target="_blank"><img src="img/soylent-green-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/dog-day-afternoon.jpg" target="_blank"><img src="img/dog-day-afternoon.jpg" alt="Dog Day Afternoon" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Attica! Attica!</blockquote>
+    <p class="film">Dog Day Afternoon <span>(1975)</span></p>
+    <p class="who">Al Pacino (Sonny)</p>
+    <p class="sub"><span class="tc">0:34:40</span> Attica! Attica! Attica!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 11 · netteté 1006 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/968" target="_blank">TMDb 968</a></p>
+    <div class="alts"><a href="img/dog-day-afternoon-alt1.jpg" target="_blank"><img src="img/dog-day-afternoon-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/dog-day-afternoon-alt2.jpg" target="_blank"><img src="img/dog-day-afternoon-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/ghostbusters.jpg" target="_blank"><img src="img/ghostbusters.jpg" alt="Ghostbusters" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Ray, when someone asks you if you&#x27;re a god, you say yes!</blockquote>
+    <p class="film">Ghostbusters <span>(1984)</span></p>
+    <p class="who">Ernie Hudson (Winston Zeddemore)</p>
+    <p class="sub"><span class="tc">1:27:30</span> Ray, when someone asks you if you&#x27;re a god, you say, &quot;Yes.&quot;</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 3 · netteté 151 · 804p ·
+      <a href="https://www.themoviedb.org/movie/620" target="_blank">TMDb 620</a></p>
+    <div class="alts"><a href="img/ghostbusters-alt1.jpg" target="_blank"><img src="img/ghostbusters-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/ghostbusters-alt2.jpg" target="_blank"><img src="img/ghostbusters-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/there-will-be-blood.jpg" target="_blank"><img src="img/there-will-be-blood.jpg" alt="There Will Be Blood" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">I drink your milkshake!</blockquote>
+    <p class="film">There Will Be Blood <span>(2007)</span></p>
+    <p class="who">Daniel Day-Lewis (Daniel Plainview)</p>
+    <p class="sub"><span class="tc">2:28:49</span> I drink your milkshake!</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 2 · netteté 323 · 800p ·
+      <a href="https://www.themoviedb.org/movie/7345" target="_blank">TMDb 7345</a></p>
+    <div class="alts"><a href="img/there-will-be-blood-alt1.jpg" target="_blank"><img src="img/there-will-be-blood-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/there-will-be-blood-alt2.jpg" target="_blank"><img src="img/there-will-be-blood-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/se7en.jpg" target="_blank"><img src="img/se7en.jpg" alt="Se7en" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">What&#x27;s in the box?</blockquote>
+    <p class="film">Se7en <span>(1995)</span></p>
+    <p class="who">Brad Pitt (David Mills)</p>
+    <p class="sub"><span class="tc">1:58:28</span> - It seems that envy is my sin. - Oh, what&#x27;s in the box?</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 132 · 800p ·
+      <a href="https://www.themoviedb.org/movie/807" target="_blank">TMDb 807</a></p>
+    <div class="alts"><a href="img/se7en-alt1.jpg" target="_blank"><img src="img/se7en-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/se7en-alt2.jpg" target="_blank"><img src="img/se7en-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/usual-suspects.jpg" target="_blank"><img src="img/usual-suspects.jpg" alt="The Usual Suspects" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">The greatest trick the Devil ever pulled was convincing the world he didn&#x27;t exist.</blockquote>
+    <p class="film">The Usual Suspects <span>(1995)</span></p>
+    <p class="who">Kevin Spacey (Verbal Kint)</p>
+    <p class="sub"><span class="tc">0:59:30</span> The greatest trick the devil ever pulled / was convincing the world he didn&#x27;t exist.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 1 · netteté 108 · 800p ·
+      <a href="https://www.themoviedb.org/movie/629" target="_blank">TMDb 629</a></p>
+    <div class="alts"><a href="img/usual-suspects-alt1.jpg" target="_blank"><img src="img/usual-suspects-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/usual-suspects-alt2.jpg" target="_blank"><img src="img/usual-suspects-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/goodfellas.jpg" target="_blank"><img src="img/goodfellas.jpg" alt="Goodfellas" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Funny how? I mean, funny like I&#x27;m a clown? I amuse you?</blockquote>
+    <p class="film">Goodfellas <span>(1990)</span></p>
+    <p class="who">Joe Pesci (Tommy DeVito)</p>
+    <p class="sub"><span class="tc">0:21:24</span> But, I&#x27;m funny, how? Funny like a clown? I amuse you? / I make you laugh? I&#x27;m here to fucking amuse you?</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 80 % · visages 2 · netteté 86 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/769" target="_blank">TMDb 769</a></p>
+    <div class="alts"><a href="img/goodfellas-alt1.jpg" target="_blank"><img src="img/goodfellas-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/goodfellas-alt2.jpg" target="_blank"><img src="img/goodfellas-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/full-metal-jacket.jpg" target="_blank"><img src="img/full-metal-jacket.jpg" alt="Full Metal Jacket" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">What is your major malfunction?</blockquote>
+    <p class="film">Full Metal Jacket <span>(1987)</span></p>
+    <p class="who">R. Lee Ermey (Sgt. Hartman)</p>
+    <p class="sub"><span class="tc">0:44:05</span> What is your major malfunction, numb-nuts?</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 2 · netteté 33 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/600" target="_blank">TMDb 600</a></p>
+    <div class="alts"><a href="img/full-metal-jacket-alt1.jpg" target="_blank"><img src="img/full-metal-jacket-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/full-metal-jacket-alt2.jpg" target="_blank"><img src="img/full-metal-jacket-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/clockwork-orange.jpg" target="_blank"><img src="img/clockwork-orange.jpg" alt="A Clockwork Orange" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">There was me, that is Alex, and my three droogs.</blockquote>
+    <p class="film">A Clockwork Orange <span>(1971)</span></p>
+    <p class="who">Malcolm McDowell (Alex)</p>
+    <p class="sub"><span class="tc">0:01:41</span> ALEX: There was me. / That is, Alex, and my three droogs.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 7 · netteté 138 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/185" target="_blank">TMDb 185</a></p>
+    <div class="alts"><a href="img/clockwork-orange-alt1.jpg" target="_blank"><img src="img/clockwork-orange-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/clockwork-orange-alt2.jpg" target="_blank"><img src="img/clockwork-orange-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/chinatown.jpg" target="_blank"><img src="img/chinatown.jpg" alt="Chinatown" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Forget it, Jake. It&#x27;s Chinatown.</blockquote>
+    <p class="film">Chinatown <span>(1974)</span></p>
+    <p class="who">Joe Mantell (Walsh)</p>
+    <p class="sub"><span class="tc">2:08:25</span> Forget it, Jake. It&#x27;s Chinatown.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 6 · netteté 72 · 816p ·
+      <a href="https://www.themoviedb.org/movie/829" target="_blank">TMDb 829</a></p>
+    <div class="alts"><a href="img/chinatown-alt1.jpg" target="_blank"><img src="img/chinatown-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/chinatown-alt2.jpg" target="_blank"><img src="img/chinatown-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/rocky.jpg" target="_blank"><img src="img/rocky.jpg" alt="Rocky" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Yo, Adrian!</blockquote>
+    <p class="film">Rocky <span>(1976)</span></p>
+    <p class="who">Sylvester Stallone (Rocky Balboa)</p>
+    <p class="sub"><span class="tc">0:37:54</span> Yo, Adrian. It&#x27;s me, Rocky.</p>
+    <p class="meta">sous-titres Plex, piste intégrée · correspondance 100 % · visages 3 · netteté 76 · 1040p ·
+      <a href="https://www.themoviedb.org/movie/1366" target="_blank">TMDb 1366</a></p>
+    <div class="alts"><a href="img/rocky-alt1.jpg" target="_blank"><img src="img/rocky-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/rocky-alt2.jpg" target="_blank"><img src="img/rocky-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/no-country.jpg" target="_blank"><img src="img/no-country.jpg" alt="No Country for Old Men" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">What&#x27;s the most you ever lost on a coin toss?</blockquote>
+    <p class="film">No Country for Old Men <span>(2007)</span></p>
+    <p class="who">Javier Bardem (Anton Chigurh)</p>
+    <p class="sub"><span class="tc">0:23:35</span> What&#x27;s the most you ever lost on a coin toss?</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 3 · netteté 299 · 814p ·
+      <a href="https://www.themoviedb.org/movie/6977" target="_blank">TMDb 6977</a></p>
+    <div class="alts"><a href="img/no-country-alt1.jpg" target="_blank"><img src="img/no-country-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/no-country-alt2.jpg" target="_blank"><img src="img/no-country-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/big-sleep.jpg" target="_blank"><img src="img/big-sleep.jpg" alt="The Big Sleep" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">Speaking of horses...</blockquote>
+    <p class="film">The Big Sleep <span>(1946)</span></p>
+    <p class="who">Lauren Bacall (Vivian)</p>
+    <p class="sub"><span class="tc">1:02:57</span> Well, speaking of horses, I like to play them myself.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 3 · netteté 76 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/910" target="_blank">TMDb 910</a></p>
+    <div class="alts"><a href="img/big-sleep-alt1.jpg" target="_blank"><img src="img/big-sleep-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/big-sleep-alt2.jpg" target="_blank"><img src="img/big-sleep-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/to-have-and-have-not.jpg" target="_blank"><img src="img/to-have-and-have-not.jpg" alt="To Have and Have Not" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">You know how to whistle, don&#x27;t you, Steve? You just put your lips together and blow.</blockquote>
+    <p class="film">To Have and Have Not <span>(1944)</span></p>
+    <p class="who">Lauren Bacall (Slim)</p>
+    <p class="sub"><span class="tc">0:43:28</span> You know how to whistle, don&#x27;t you, Steve? / You just put your lips together and blow.</p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 1 · netteté 116 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/22584" target="_blank">TMDb 22584</a></p>
+    <div class="alts"><a href="img/to-have-and-have-not-alt1.jpg" target="_blank"><img src="img/to-have-and-have-not-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/to-have-and-have-not-alt2.jpg" target="_blank"><img src="img/to-have-and-have-not-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article>
+<article class="card">
+  <a class="still" href="img/maltese-falcon.jpg" target="_blank"><img src="img/maltese-falcon.jpg" alt="The Maltese Falcon" loading="lazy"></a>
+  <div class="body">
+    <blockquote lang="en">The stuff that dreams are made of.</blockquote>
+    <p class="film">The Maltese Falcon <span>(1941)</span></p>
+    <p class="who">Humphrey Bogart (Sam Spade)</p>
+    <p class="sub"><span class="tc">1:39:20</span> The stuff that dreams are made of.  </p>
+    <p class="meta">sous-titres Plex, fichier externe · correspondance 100 % · visages 2 · netteté 38 · 1080p ·
+      <a href="https://www.themoviedb.org/movie/963" target="_blank">TMDb 963</a></p>
+    <div class="alts"><a href="img/maltese-falcon-alt1.jpg" target="_blank"><img src="img/maltese-falcon-alt1.jpg" alt="autre image candidate" loading="lazy"></a><a href="img/maltese-falcon-alt2.jpg" target="_blank"><img src="img/maltese-falcon-alt2.jpg" alt="autre image candidate" loading="lazy"></a></div>
+  </div>
+</article></main>
+<section class="misses"><h2>Non retrouvées</h2><ul><li><b>Star Wars</b> (1977) : réplique introuvable dans les sous-titres disponibles</li><li><b>Apollo 13</b> (1995) : réplique introuvable dans les sous-titres disponibles</li><li><b>Titanic</b> (1997) : réplique introuvable dans les sous-titres disponibles</li><li><b>Jerry Maguire</b> (1996) : réplique introuvable dans les sous-titres disponibles</li><li><b>Terminator 2: Judgment Day</b> (1991) : réplique introuvable dans les sous-titres disponibles</li><li><b>Cool Hand Luke</b> (1967) : réplique introuvable dans les sous-titres disponibles</li><li><b>E.T. the Extra-Terrestrial</b> (1982) : réplique introuvable dans les sous-titres disponibles</li><li><b>Apocalypse Now</b> (1979) : réplique introuvable dans les sous-titres disponibles</li><li><b>The Karate Kid</b> (1984) : réplique introuvable dans les sous-titres disponibles</li><li><b>Top Gun</b> (1986) : réplique introuvable dans les sous-titres disponibles</li><li><b>In the Heat of the Night</b> (1967) : réplique introuvable dans les sous-titres disponibles</li><li><b>All About Eve</b> (1950) : réplique introuvable dans les sous-titres disponibles</li><li><b>When Harry Met Sally...</b> (1989) : réplique introuvable dans les sous-titres disponibles</li><li><b>Blade Runner</b> (1982) : réplique introuvable dans les sous-titres disponibles</li><li><b>Pulp Fiction</b> (1994) : réplique introuvable dans les sous-titres disponibles</li><li><b>The Shawshank Redemption</b> (1994) : réplique introuvable dans les sous-titres disponibles</li><li><b>Gladiator</b> (2000) : réplique introuvable dans les sous-titres disponibles</li><li><b>Jurassic Park</b> (1993) : réplique introuvable dans les sous-titres disponibles</li><li><b>The Princess Bride</b> (1987) : réplique introuvable dans les sous-titres disponibles</li><li><b>Le Quai des brumes</b> (1938) : réplique introuvable dans les sous-titres disponibles</li><li><b>Le Dîner de cons</b> (1998) : réplique introuvable dans les sous-titres disponibles</li><li><b>Les Visiteurs</b> (1993) : réplique introuvable dans les sous-titres disponibles</li><li><b>Le Père Noël est une ordure</b> (1982) : réplique introuvable dans les sous-titres disponibles</li><li><b>La Haine</b> (1995) : réplique introuvable dans les sous-titres disponibles</li><li><b>Les Bronzés font du ski</b> (1979) : réplique introuvable dans les sous-titres disponibles</li><li><b>Le Corniaud</b> (1965) : réplique introuvable dans les sous-titres disponibles</li><li><b>À bout de souffle</b> (1960) : réplique introuvable dans les sous-titres disponibles</li><li><b>Le Mépris</b> (1963) : réplique introuvable dans les sous-titres disponibles</li><li><b>La Grande Vadrouille</b> (1966) : réplique introuvable dans les sous-titres disponibles</li><li><b>Astérix &amp; Obélix : Mission Cléopâtre</b> (2002) : réplique introuvable dans les sous-titres disponibles</li><li><b>La Cité de la peur</b> (1994) : réplique introuvable dans les sous-titres disponibles</li><li><b>The Empire Strikes Back</b> (1980) : film absent de Plex</li><li><b>Highlander</b> (1986) : réplique introuvable dans les sous-titres disponibles</li><li><b>Aliens</b> (1986) : réplique introuvable dans les sous-titres disponibles</li><li><b>Love Story</b> (1970) : réplique introuvable dans les sous-titres disponibles</li><li><b>Marathon Man</b> (1976) : réplique introuvable dans les sous-titres disponibles</li><li><b>Poltergeist</b> (1982) : réplique introuvable dans les sous-titres disponibles</li><li><b>Wall Street</b> (1987) : réplique introuvable dans les sous-titres disponibles</li><li><b>The Lord of the Rings: The Fellowship of the Ring</b> (2001) : réplique introuvable dans les sous-titres disponibles</li><li><b>Finding Nemo</b> (2003) : réplique introuvable dans les sous-titres disponibles</li><li><b>Iron Man</b> (2008) : réplique introuvable dans les sous-titres disponibles</li><li><b>Raiders of the Lost Ark</b> (1981) : réplique introuvable dans les sous-titres disponibles</li><li><b>Ferris Bueller&#x27;s Day Off</b> (1986) : réplique introuvable dans les sous-titres disponibles</li><li><b>Goldfinger</b> (1964) : réplique introuvable dans les sous-titres disponibles</li><li><b>300</b> (2007) : réplique introuvable dans les sous-titres disponibles</li><li><b>Frankenstein</b> (1931) : réplique introuvable dans les sous-titres disponibles</li><li><b>Citizen Kane</b> (1941) : réplique introuvable dans les sous-titres disponibles</li><li><b>A League of Their Own</b> (1992) : réplique introuvable dans les sous-titres disponibles</li><li><b>The Deer Hunter</b> (1978) : réplique introuvable dans les sous-titres disponibles</li><li><b>Unforgiven</b> (1992) : réplique introuvable dans les sous-titres disponibles</li><li><b>Drôle de drame</b> (1937) : réplique introuvable dans les sous-titres disponibles</li><li><b>Les Enfants du paradis</b> (1945) : réplique introuvable dans les sous-titres disponibles</li><li><b>Pierrot le fou</b> (1965) : réplique introuvable dans les sous-titres disponibles</li><li><b>Les Aventures de Rabbi Jacob</b> (1973) : réplique introuvable dans les sous-titres disponibles</li><li><b>Bienvenue chez les Ch&#x27;tis</b> (2008) : réplique introuvable dans les sous-titres disponibles</li><li><b>Brice de Nice</b> (2005) : réplique introuvable dans les sous-titres disponibles</li><li><b>Le Grand Blond avec une chaussure noire</b> (1972) : réplique introuvable dans les sous-titres disponibles</li><li><b>L&#x27;Aile ou la Cuisse</b> (1976) : réplique introuvable dans les sous-titres disponibles</li><li><b>OSS 117 : Rio ne répond plus</b> (2009) : réplique introuvable dans les sous-titres disponibles</li></ul></section>
+</body></html>

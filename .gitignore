@@ -1,0 +1,5 @@
+work/
+models/*.onnx
+site/img/
+.venv/
+__pycache__/
