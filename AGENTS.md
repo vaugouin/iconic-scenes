@@ -41,6 +41,13 @@ uv run iconic-scenes run taxi-driver --force # redo one quote
 uv run iconic-scenes report                  # rewrite site/index.html
 ```
 
+## Repository and versioning
+
+- Public on GitHub: <https://github.com/vaugouin/iconic-scenes>, code under MIT (`LICENSE`). `README.md` is the public description, in English, no em dashes.
+- The version lives in `pyproject.toml` and `src/iconic_scenes/__init__.py`: bump both (then `uv lock`) in every commit.
+- Never commit stills (`site/img/`, frames of copyrighted films) or `work/`.
+- Listed in the ecosystem docs: the profile README (`~/Code/vaugouin/README.md`, "Other projects"), the About page (`~/Code/tmdb-front/lib/about.inc.php`) and `tmdb-front/AGENTS.md`, and the roster `~/Nestor/projets/t2s-backlog/topics/related-repositories.txt`. Update them if the repo is renamed or archived.
+
 ## Dependencies on other repos
 
 - **open-credits**: Plex URL, token and path map are read from `%LOCALAPPDATA%\opencredits\opencredits.env` (`PLEX_SERVER_URL`, `PLEX_TOKEN`, `OC_PATH_MAP`), and the TMDb-id-to-Plex index from `%LOCALAPPDATA%\opencredits\opencredits.sqlite` (table `plex_movie`, opened read-only). Override with `ICONIC_PLEX_ENV` and `ICONIC_PLEX_INDEX`. Never print or commit the token.
