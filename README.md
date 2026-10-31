@@ -15,7 +15,7 @@ Every step is done by existing software and classical algorithms, at no token co
 
 ## Status
 
-Version 0.1, October 2026. Of 118 candidate lines (94 in English, 24 in French), 59 have a still, every one checked by eye to be the right scene: 45 from Plex sidecar files, 13 from embedded tracks, 1 from speech recognition. The lines that fail are listed at the bottom of the page, mostly films whose only subtitle track is embedded in a large file, and French films with no French subtitles.
+Version 0.1, October 2026. Of 118 candidate lines (94 in English, 24 in French), 115 have a still: 46 from Plex sidecar files, 50 from embedded tracks, 19 from local speech recognition (films with no subtitles in the line's language, or image-only subtitles). The three lines left, listed at the bottom of the page, are not in the film as written: a misremembered wording, or a one-word exclamation that speech recognition writes as "OK".
 
 Known limit: in a shot and reverse shot, nothing tells which of the two faces is speaking, so a few stills show the listener rather than the speaker.
 

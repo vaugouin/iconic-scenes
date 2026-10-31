@@ -15,11 +15,8 @@ def normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def find(quote: str, cues: list[dict], occurrence: str = "") -> dict | None:
-    """Best alignment of `quote` over the concatenated cues.
-
-    When the line is said several times (score within 2 points of the best), `occurrence` picks one:
-    "" or "first", "last", or a 1-based number. Returns the score (0-100), the matched cues and their time span."""
+def _align(quote: str, cues: list[dict]):
+    """Concatenated normalized text, char -> cue owner map, normalized quote, and (score, a, b) per chunk."""
     pieces, owner, pos = [], [], 0
     for i, cue in enumerate(cues):
         t = normalize(cue["text"])
@@ -30,9 +27,9 @@ def find(quote: str, cues: list[dict], occurrence: str = "") -> dict | None:
         pos += len(t) + 1
     full = " ".join(pieces)
     q = normalize(quote)
-    if not q or not full:
-        return None
     found = []
+    if not q or not full:
+        return full, owner, q, found
     # Slide over overlapping chunks so long films stay fast and every occurrence competes.
     width = max(len(q) * 4, 400)
     step = width // 2
@@ -41,6 +38,39 @@ def find(quote: str, cues: list[dict], occurrence: str = "") -> dict | None:
         al = fuzz.partial_ratio_alignment(q, chunk)
         if al and al.score > 0:
             found.append((al.score, start + al.dest_start, start + al.dest_end))
+    return full, owner, q, found
+
+
+def _hit(cues, full, owner, score, a, b, occurrences=1):
+    while a < b and full[a] == " ":                       # a leading space belongs to the previous cue
+        a += 1
+    while b > a and full[b - 1] == " ":
+        b -= 1
+    first, last = owner[min(a, len(owner) - 1)], owner[max(a, min(b - 1, len(owner) - 1))]
+    hit = cues[first:last + 1]
+    return dict(score=round(score, 1), first=first, last=last, start=hit[0]["start"], end=hit[-1]["end"],
+                text=" / ".join(c["text"] for c in hit), matched=full[a:b], occurrences=occurrences)
+
+
+def windows(quote: str, cues: list[dict], n: int = 3, floor: float = 0) -> list[dict]:
+    """The n best distinct alignments (different cues), best first: candidates for a closer look."""
+    full, owner, q, found = _align(quote, cues)
+    out = []
+    for f in sorted(found, key=lambda f: -f[0]):
+        if f[0] < floor or len(out) == n:
+            break
+        h = _hit(cues, full, owner, *f)
+        if all(h["last"] < o["first"] or h["first"] > o["last"] for o in out):
+            out.append(h)
+    return out
+
+
+def find(quote: str, cues: list[dict], occurrence: str = "") -> dict | None:
+    """Best alignment of `quote` over the concatenated cues.
+
+    When the line is said several times (score within 2 points of the best), `occurrence` picks one:
+    "" or "first", "last", or a 1-based number. Returns the score (0-100), the matched cues and their time span."""
+    full, owner, q, found = _align(quote, cues)
     if not found:
         return None
     top = max(f[0] for f in found)
@@ -57,12 +87,4 @@ def find(quote: str, cues: list[dict], occurrence: str = "") -> dict | None:
         pick = hits[min(int(occurrence), len(hits)) - 1]
     else:
         pick = max(hits, key=lambda f: f[0]) if not occurrence else hits[0]
-    score, a, b = pick
-    while a < b and full[a] == " ":                       # a leading space belongs to the previous cue
-        a += 1
-    while b > a and full[b - 1] == " ":
-        b -= 1
-    first, last = owner[min(a, len(owner) - 1)], owner[max(a, min(b - 1, len(owner) - 1))]
-    hit = cues[first:last + 1]
-    return dict(score=round(score, 1), first=first, last=last, start=hit[0]["start"], end=hit[-1]["end"],
-                text=" / ".join(c["text"] for c in hit), matched=full[a:b], occurrences=len(hits))
+    return _hit(cues, full, owner, *pick, occurrences=len(hits))

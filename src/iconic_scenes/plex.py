@@ -85,10 +85,11 @@ def parts(meta: dict) -> list[dict]:
         part = media["Part"][0]
         video = next((s for s in part.get("Stream", []) if s.get("streamType") == 1), {})
         subs = [s for s in part.get("Stream", []) if s.get("streamType") == 3]
+        audio = [dict(index=s.get("index"), lang=s.get("languageCode")) for s in part.get("Stream", []) if s.get("streamType") == 2]
         out.append(dict(
             id=part["id"], file=local(part["file"]), size=part.get("size", 0), height=media.get("height") or 0,
             resolution=media.get("videoResolution"), hdr=bool(video.get("DOVIPresent") or "smpte2084" in str(video.get("colorTrc", ""))
                                                                or "HDR" in str(video.get("displayTitle", ""))),
-            dovi=bool(video.get("DOVIPresent")), subs=subs,
+            dovi=bool(video.get("DOVIPresent")), subs=subs, audio=audio,
         ))
     return out
