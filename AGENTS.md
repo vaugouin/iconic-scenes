@@ -16,6 +16,7 @@ Famous movie line (`data/quotes.csv`) to best still from the Plex library (drive
 - `export.py` writes `data/iconic-scenes.csv` (one row per line of `quotes.csv`, everything the page shows) and `data/iconic-scenes.sql` (upsert into `T_WC_ICONIC_SCENE`, DDL in `doc/sql/T_WC_ICONIC_SCENE.sql`). `report.py` renders `site/index.html` from the same rows, so the CSV is enough to rebuild the page.
 - tmdb-front `iconic-scenes.php` (`lib/iconic-scenes.inc.php`) renders the same page from the table, in the private folders only. Its stills come from `~/docker/shared_data/iconic-scenes/` on the VPS, mounted read-only at `/iconic-scenes/`; copy `site/img/*.jpg` there, never into git.
 - The DDL and the load run through route 2 (Philippe, `runsqlvaugouindb.sh`): the agent account cannot write to this table.
+- Subtitle text goes through `export.clean()`: some sidecar files carry NUL bytes, and the MariaDB client stops the load on the first one (2026-10-31, *Some Like It Hot*).
 
 ## Dependencies on other repos
 

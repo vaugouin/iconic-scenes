@@ -36,6 +36,11 @@ def source_kind(r: dict) -> str:
     return "sidecar" if track.get("external") else "embedded"
 
 
+def clean(text: str) -> str:
+    """Drop control characters (some sidecar files carry NUL bytes, which MariaDB rejects) and squeeze spaces."""
+    return " ".join(re.sub(r"[\x00-\x1f\x7f]", " ", text or "").split())
+
+
 def row(rank: int, q: dict, r: dict | None) -> dict:
     actor, character = split_who(q["who"])
     out = dict(rank=rank, id=q["id"], status=r["status"] if r else "not run", quote=q["quote"], lang=q["lang"],
@@ -45,7 +50,7 @@ def row(rank: int, q: dict, r: dict | None) -> dict:
         alts = r.get("alternates", []) + ["", ""]
         best, m = r["best"], r["match"]
         out.update(still_path="img/", still_file=r["still"], alt1_file=alts[0], alt2_file=alts[1],
-                   timecode=timecode(best["t"]), seconds=round(best["t"], 2), subtitle_text=m["text"],
+                   timecode=timecode(best["t"]), seconds=round(best["t"], 2), subtitle_text=clean(m["text"]),
                    source=source_kind(r), match_score=round(m["score"], 1), faces=best["faces"],
                    sharpness=round(best["sharp"]), source_height=r["source_height"], hdr=int(bool(r.get("hdr"))))
     return out
