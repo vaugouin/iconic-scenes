@@ -1,8 +1,8 @@
-"""iconic-scenes run [ids...] [--force] | report"""
+"""iconic-scenes run [ids...] [--force] | report | export"""
 import argparse
 import sys
 
-from . import pipeline, report
+from . import export, pipeline, report
 
 
 def main() -> None:
@@ -13,7 +13,8 @@ def main() -> None:
     r.add_argument("--force", action="store_true", help="redo quotes that already have a result")
     r.add_argument("--sidecar-only", action="store_true", help="only sidecar subtitle files (fast), no embedded track extraction")
     r.add_argument("--speech", action="store_true", help="fall back to local speech recognition when no subtitle track matches")
-    sub.add_parser("report", help="write site/index.html from the results")
+    sub.add_parser("report", help="write data/iconic-scenes.csv and site/index.html from the results")
+    sub.add_parser("export", help="write data/iconic-scenes.csv only")
     args = ap.parse_args()
     if args.cmd == "run":
         todo = [q for q in pipeline.quotes() if not args.ids or q["id"] in args.ids]
@@ -22,6 +23,8 @@ def main() -> None:
             m = res.get("match") or {}
             print(f"[{n}/{len(todo)}] {q['id']}: {res['status']} {m.get('score', '')} {m.get('start', '')}", flush=True)
         report.write()
+    elif args.cmd == "export":
+        print(export.write())
     else:
         print(report.write())
 

@@ -3,35 +3,23 @@ import html
 import json
 from datetime import date
 
-from . import __version__, config, pipeline
-
-
-def tc(seconds: float) -> str:
-    s = int(seconds)
-    return f"{s // 3600}:{s % 3600 // 60:02d}:{s % 60:02d}"
-
-
-def source(r: dict) -> str:
-    track = r.get("track") or {}
-    if str(track.get("id", "")).startswith("asr-"):
-        return "reconnaissance vocale locale"
-    return "sous-titres Plex, fichier externe" if track.get("external") else "sous-titres Plex, piste intégrée"
+from . import __version__, config, export
 
 
 def card(r: dict) -> str:
     e = html.escape
-    m, best = r["match"], r["best"]
-    alts = "".join(f'<a href="img/{e(a)}" target="_blank"><img src="img/{e(a)}" alt="autre image candidate" loading="lazy"></a>'
-                   for a in r.get("alternates", []))
+    alts = "".join(f'<a href="{e(r["still_path"] + a)}" target="_blank"><img src="{e(r["still_path"] + a)}" alt="autre image candidate" loading="lazy"></a>'
+                   for a in (r["alt1_file"], r["alt2_file"]) if a)
+    who = f"{r['actor']} ({r['character']})" if r["character"] else r["actor"]
     return f"""
 <article class="card">
-  <a class="still" href="img/{e(r['still'])}" target="_blank"><img src="img/{e(r['still'])}" alt="{e(r['title'])}" loading="lazy"></a>
+  <a class="still" href="{e(r['still_path'] + r['still_file'])}" target="_blank"><img src="{e(r['still_path'] + r['still_file'])}" alt="{e(r['title'])}" loading="lazy"></a>
   <div class="body">
     <blockquote lang="{e(r['lang'])}">{e(r['quote'])}</blockquote>
-    <p class="film">{e(r['title'])} <span>({e(r['year'])})</span></p>
-    <p class="who">{e(r['who'])}</p>
-    <p class="sub"><span class="tc">{tc(best['t'])}</span> {e(m['text'])}</p>
-    <p class="meta">{source(r)} · correspondance {m['score']:.0f} % · visages {best['faces']} · netteté {best['sharp']:.0f} · {r['source_height']}p{' HDR→SDR' if r.get('hdr') else ''} ·
+    <p class="film">{e(r['title'])} <span>({e(str(r['year']))})</span></p>
+    <p class="who">{e(who)}</p>
+    <p class="sub"><span class="tc">{r['timecode']}</span> {e(r['subtitle_text'])}</p>
+    <p class="meta">{export.SOURCES[r['source']]} · correspondance {r['match_score']:.0f} % · visages {r['faces']} · netteté {r['sharpness']:.0f} · {r['source_height']}p{' HDR→SDR' if r['hdr'] else ''} ·
       <a href="https://www.themoviedb.org/movie/{r['tmdb_id']}" target="_blank">TMDb {r['tmdb_id']}</a></p>
     <div class="alts">{alts}</div>
   </div>
@@ -39,11 +27,8 @@ def card(r: dict) -> str:
 
 
 def write() -> str:
-    results = []
-    for q in pipeline.quotes():
-        f = pipeline.RESULTS / f"{q['id']}.json"
-        if f.exists():
-            results.append(json.loads(f.read_text(encoding="utf-8")))
+    results = [r for r in export.rows() if r["status"] != "not run"]
+    export.write()
     ok = [r for r in results if r["status"] == "ok"]
     ko = [r for r in results if r["status"] != "ok"]
     why = {"line not found": "réplique introuvable dans les sous-titres disponibles", "not in Plex": "film absent de Plex"}

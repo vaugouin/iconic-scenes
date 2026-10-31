@@ -11,6 +11,12 @@ Famous movie line (`data/quotes.csv`) to best still from the Plex library (drive
 - Never commit stills (`site/img/`, frames of copyrighted films) or `work/`.
 - Listed in the ecosystem docs: the profile README (`~/Code/vaugouin/README.md`, "Other projects"), the About page (`~/Code/tmdb-front/lib/about.inc.php`) and `tmdb-front/AGENTS.md`, and the roster `~/Nestor/projets/t2s-backlog/topics/related-repositories.txt`. Update them if the repo is renamed or archived.
 
+## Export and tmdb-front
+
+- `export.py` writes `data/iconic-scenes.csv` (one row per line of `quotes.csv`, everything the page shows) and `data/iconic-scenes.sql` (upsert into `T_WC_ICONIC_SCENE`, DDL in `doc/sql/T_WC_ICONIC_SCENE.sql`). `report.py` renders `site/index.html` from the same rows, so the CSV is enough to rebuild the page.
+- tmdb-front `iconic-scenes.php` (`lib/iconic-scenes.inc.php`) renders the same page from the table, in the private folders only. Its stills come from `~/docker/shared_data/iconic-scenes/` on the VPS, mounted read-only at `/iconic-scenes/`; copy `site/img/*.jpg` there, never into git.
+- The DDL and the load run through route 2 (Philippe, `runsqlvaugouindb.sh`): the agent account cannot write to this table.
+
 ## Dependencies on other repos
 
 - **open-credits**: Plex URL, token and path map are read from `%LOCALAPPDATA%\opencredits\opencredits.env` (`PLEX_SERVER_URL`, `PLEX_TOKEN`, `OC_PATH_MAP`), and the TMDb-id-to-Plex index from `%LOCALAPPDATA%\opencredits\opencredits.sqlite` (table `plex_movie`, opened read-only). Override with `ICONIC_PLEX_ENV` and `ICONIC_PLEX_INDEX`. Never print or commit the token.
