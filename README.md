@@ -15,7 +15,7 @@ Every step is done by existing software and classical algorithms, at no token co
 
 ## Status
 
-Version 0.1, October 2026. Of 118 candidate lines (94 in English, 24 in French), 115 have a still: 46 from Plex sidecar files, 50 from embedded tracks, 19 from local speech recognition (films with no subtitles in the line's language, or image-only subtitles). The three lines left, listed at the bottom of the page, are not in the film as written: a misremembered wording, or a one-word exclamation that speech recognition writes as "OK".
+Version 0.1, November 2026. Of 242 candidate lines (208 in English, 34 in French), 238 have a still: 83 from Plex sidecar files, 119 from embedded tracks, 36 from local speech recognition (films with no subtitles in the line's language, or image-only subtitles). Of the four lines left, listed at the bottom of the page, three are not in the film as written (a misremembered wording, or a one-word exclamation that speech recognition writes as "OK"), and one is matched in Plex to the wrong film (*Anchorman*, filed under its companion film *Wake Up, Ron Burgundy*).
 
 Known limit: in a shot and reverse shot, nothing tells which of the two faces is speaking, so a few stills show the listener rather than the speaker.
 

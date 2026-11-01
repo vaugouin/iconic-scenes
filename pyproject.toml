@@ -1,6 +1,6 @@
 [project]
 name = "iconic-scenes"
-version = "0.1.6"
+version = "0.1.7"
 description = "Find a famous movie line in the Plex subtitles, then keep the best still of the scene. No LLM."
 requires-python = ">=3.12"
 dependencies = [
