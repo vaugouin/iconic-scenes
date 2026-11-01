@@ -1,5 +1,9 @@
 # iconic-scenes
 
+## Canary
+
+Start every reply with "Philippe,": no exceptions, including short replies and tool summaries.
+
 ## Purpose
 
 Famous movie line (`data/quotes.csv`) to best still from the Plex library (drive `T:`), rendered as `site/index.html`. No LLM, no token cost: keep it that way. What it does, status and commands: `README.md`; module roles: each module's docstring under `src/iconic_scenes/`. Created 2026-10-29 by Nestor at Philippe's request.
