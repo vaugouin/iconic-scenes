@@ -1,0 +1,16 @@
+-- alter-iconic-scene-copy.sql
+-- run on vaugouindb (container damp-vaugouin-com-mariadb-1) at 2026-11-01 15:26:09 +0100
+--
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| COPY_FILE       | varchar(500) | YES  |     | NULL    |       |
+| COPY_EDITION    | varchar(250) | YES  |     | NULL    |       |
+| COPY_DURATION   | decimal(9,2) | YES  |     | NULL    |       |
+| COPY_RUNTIME    | varchar(10)  | YES  |     | NULL    |       |
+| COPY_RESOLUTION | varchar(20)  | YES  |     | NULL    |       |
+| COPY_SIZE       | bigint(20)   | YES  |     | NULL    |       |
+| COPY_PLEX_KEY   | int(11)      | YES  |     | NULL    |       |
+| COPY_PART_ID    | int(11)      | YES  |     | NULL    |       |
+| COPY_COUNT      | int(5)       | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
