@@ -1,5 +1,6 @@
 -- iconic-scenes: one famous movie line per row, with the best still of its scene.
 -- Filled from data/iconic-scenes.csv by data/iconic-scenes.sql (iconic-scenes export), read by tmdb-front iconic-scenes.php.
+-- TIMECODE and SECONDS are valid for the COPY_* file only: editions (Director's Cut, Extended...) and rips differ in length.
 -- Images are not in git: STILL_PATH points to a read-only mount of ~/docker/shared_data/iconic-scenes under the docroot.
 CREATE TABLE IF NOT EXISTS `T_WC_ICONIC_SCENE` (
   `ID_ICONIC_SCENE` int(11) NOT NULL AUTO_INCREMENT,
@@ -25,6 +26,16 @@ CREATE TABLE IF NOT EXISTS `T_WC_ICONIC_SCENE` (
   `SHARPNESS` int(11) DEFAULT NULL,
   `SOURCE_HEIGHT` int(5) DEFAULT NULL,
   `IS_HDR` int(5) DEFAULT NULL,
+  `COPY_FILE` varchar(500) DEFAULT NULL,
+  `COPY_EDITION` varchar(250) DEFAULT NULL,
+  `COPY_DURATION` decimal(9,2) DEFAULT NULL,
+  `COPY_RUNTIME` varchar(10) DEFAULT NULL,
+  `COPY_RESOLUTION` varchar(20) DEFAULT NULL,
+  `COPY_SIZE` bigint(20) DEFAULT NULL,
+  `COPY_PLEX_KEY` int(11) DEFAULT NULL,
+  `COPY_PART_ID` int(11) DEFAULT NULL,
+  `COPY_COUNT` int(5) DEFAULT NULL,
+  `OTHER_COPIES` text DEFAULT NULL,
   `DELETED` int(5) DEFAULT 0,
   `DISPLAY_ORDER` int(5) DEFAULT NULL,
   `ID_CREATOR` int(5) DEFAULT NULL,

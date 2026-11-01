@@ -88,6 +88,38 @@ def save_still(src, crop, dest):
     cv2.imwrite(str(dest), img[y:y + h, x:x + w], [cv2.IMWRITE_JPEG_QUALITY, 92])
 
 
+COPY_KEYS = ("id", "rating_key", "edition", "duration", "width", "height", "size", "file")
+
+
+def copies(parts: list[dict]) -> list[dict]:
+    """What identifies each copy of the film, so a timecode can be tied to the exact file it was read from:
+    editions (Director's Cut, Extended...) and even rips of one edition differ in length."""
+    return [{k: p.get(k) for k in COPY_KEYS} for p in parts]
+
+
+def refresh_copies(q: dict, fresh: bool = False) -> dict | None:
+    """Re-list the Plex copies of a line's film into its result, without redoing the line.
+    fresh=True asks Plex again instead of work/plex/, to see copies added or removed since the run.
+    copy_id stays None when the file the line was read from is no longer in Plex: rerun the line then."""
+    out = RESULTS / f"{q['id']}.json"
+    if not out.exists():
+        return None
+    res = json.loads(out.read_text(encoding="utf-8"))
+    hits = plex.find_movie(q["title"], int(q["year"]), int(q["tmdb_id"]) if q.get("tmdb_id") else None)
+    if not hits:
+        return res
+    tmdb = hits[0]["tmdb_id"]
+    if fresh:
+        for h in hits:
+            (config.WORK / "plex" / f"{h['rating_key']}.json").unlink(missing_ok=True)
+    parts = [p for h in hits if h["tmdb_id"] == tmdb for p in plex.parts(plex.movie(h["rating_key"]))]
+    res["copies"] = copies(parts)
+    if res.get("file"):
+        res["copy_id"] = next((p["id"] for p in parts if p["file"] == res["file"]), None)
+    out.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+    return res
+
+
 def run_one(q: dict, force: bool = False, embedded: bool = True, speech: bool = False) -> dict:
     out = RESULTS / f"{q['id']}.json"
     if out.exists() and not force:
@@ -105,6 +137,7 @@ def run_one(q: dict, force: bool = False, embedded: bool = True, speech: bool = 
         res.update(tmdb_id=movie["tmdb_id"], plex_title=movie["title"], plex_year=movie["year"])
         # one film can be split over several Plex items (one per library or unmerged copy): pool their copies
         parts = [p for h in hits if h["tmdb_id"] == movie["tmdb_id"] for p in plex.parts(plex.movie(h["rating_key"]))]
+        res["copies"] = copies(parts)
         found = find_line(q, parts, res["log"], embedded)
         if not found and speech:
             # smallest copy that speaks the line's language, SDR before HDR (the frames come from it too)
@@ -129,7 +162,7 @@ def run_one(q: dict, force: bool = False, embedded: bool = True, speech: bool = 
             res["status"] = "line not found"
             return res
         part, stream, hit = found
-        res.update(file=part["file"], track=dict(id=stream["id"], title=stream.get("title"), external=bool(stream.get("key"))),
+        res.update(file=part["file"], copy_id=part["id"], track=dict(id=stream["id"], title=stream.get("title"), external=bool(stream.get("key"))),
                    match=hit)
         info = frames.probe(part["file"])
         a, b = hit["start"], min(hit["end"], hit["start"] + 12)

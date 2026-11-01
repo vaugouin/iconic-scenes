@@ -11,6 +11,8 @@ def card(r: dict) -> str:
     alts = "".join(f'<a href="{e(r["still_path"] + a)}" target="_blank"><img src="{e(r["still_path"] + a)}" alt="autre image candidate" loading="lazy"></a>'
                    for a in (r["alt1_file"], r["alt2_file"]) if a)
     who = f"{r['actor']} ({r['character']})" if r["character"] else r["actor"]
+    copy = ", ".join(x for x in (r["copy_edition"], r["copy_runtime"], r["copy_resolution"]) if x)
+    others = int(r["copy_count"] or 1) - 1
     return f"""
 <article class="card">
   <a class="still" href="{e(r['still_path'] + r['still_file'])}" target="_blank"><img src="{e(r['still_path'] + r['still_file'])}" alt="{e(r['title'])}" loading="lazy"></a>
@@ -21,6 +23,7 @@ def card(r: dict) -> str:
     <p class="sub"><span class="tc">{r['timecode']}</span> {e(r['subtitle_text'])}</p>
     <p class="meta">{export.SOURCES[r['source']]} · correspondance {r['match_score']:.0f} % · visages {r['faces']} · netteté {r['sharpness']:.0f} · {r['source_height']}p{' HDR→SDR' if r['hdr'] else ''} ·
       <a href="https://www.themoviedb.org/movie/{r['tmdb_id']}" target="_blank">TMDb {r['tmdb_id']}</a></p>
+    <p class="meta copy" title="{e(r['copy_file'])}">copie lue : {e(copy)}{f" (autres copies : {others})" if others else ""}</p>
     <div class="alts">{alts}</div>
   </div>
 </article>"""
@@ -53,7 +56,7 @@ blockquote::before {{ content:"« "; color:var(--accent); }} blockquote::after {
 .who {{ margin:0 0 8px; color:var(--mute); }}
 .sub {{ margin:0 0 6px; font-size:13px; color:#cfcfcf; }}
 .tc {{ font-family:ui-monospace, monospace; color:var(--accent); margin-right:6px; }}
-.meta {{ margin:0; font-size:12px; color:var(--mute); }} .meta a {{ color:var(--mute); }}
+.meta {{ margin:0; font-size:12px; color:var(--mute); }} .meta a {{ color:var(--mute); }} .meta.copy {{ margin-top:2px; }}
 .alts {{ display:flex; gap:6px; margin-top:8px; }} .alts img {{ width:96px; aspect-ratio:16/9; object-fit:cover; border-radius:4px; opacity:.75; }}
 .alts img:hover {{ opacity:1; }}
 section.misses {{ max-width:1500px; margin:auto; padding:0 16px 40px; color:var(--mute); }}
@@ -64,7 +67,7 @@ section.misses {{ max-width:1500px; margin:auto; padding:0 16px 40px; color:var(
   <p>{len(ok)} répliques célèbres retrouvées dans les films de la bibliothèque Plex, sur {len(results)} essayées, chacune avec la meilleure image de sa scène.
      Aucun modèle de langage : la réplique est alignée sur la piste de sous-titres par rapidfuzz, les images sont extraites par ffmpeg,
      et l'image retenue est choisie sur la netteté (Laplacien, Tenengrad), les visages et leur cadrage (détecteur YuNet), l'exposition et l'éloignement des changements de plan.
-     Les deux vignettes sont les images classées juste après. Le minutage est celui de l'image retenue.</p>
+     Les deux vignettes sont les images classées juste après. Le minutage est celui de l'image retenue, dans la copie lue : une autre édition ou un autre fichier du même film peut être décalé.</p>
   <p>iconic-scenes {__version__} · {date.today().isoformat()}</p>
 </header>
 <main>{''.join(card(r) for r in ok)}</main>

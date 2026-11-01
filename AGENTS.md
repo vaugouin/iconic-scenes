@@ -35,6 +35,7 @@ Famous movie line (`data/quotes.csv`) to best still from the Plex library (drive
 - **A track may leave the first utterance unsubtitled** (*Citizen Kane*'s dying "Rosebud", missing from three of five English tracks): `occurrence=first` reads every track and keeps the earliest hit.
 - **Plex is read-only for this tool.** Fetching OpenSubtitles through Plex requires attaching the result to a copy (`PUT`), which changes the shared library: ask Philippe before adding that route.
 - **Subtitle and frames must come from the same copy** (cut, PAL speed-up, offset differ between copies): `run_one` extracts frames from the part that owns the matched track.
+- **A timecode is valid for one file only.** Editions (Redux, Director's Cut, Extended) and even rips of one edition differ in length (*Apocalypse Now Redux*: 3:16:03 and 3:22:32). Every result records the copy it was read from (`copy_id`, part id) and the film's copies (`copies`: Plex rating key, edition, duration, resolution, size, file); `export` writes them as `copy_*` and `other_copies`. After copies are added or removed in Plex, `iconic-scenes copies --fresh` re-lists them without redoing the lines and names any line whose file is gone (rerun it with `--force`).
 - **Never glob T:** (HDFilms, 4KFilms hold thousands of files): go through the Plex index.
 - **Dolby Vision profile 5** decodes with wrong colours; `part_order` puts DV and HDR copies last. HDR10 is tone-mapped with zscale + hable.
 - **Plex metadata calls sometimes time out**: three tries, every answer cached in `work/plex/`.

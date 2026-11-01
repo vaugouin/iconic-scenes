@@ -76,6 +76,12 @@ def movie(rating_key: int) -> dict:
     return meta
 
 
+def edition(meta: dict, plex_file: str) -> str:
+    """Plex edition title (Director's Cut, Redux...), else the {edition-...} tag of the file name, else ""."""
+    m = re.search(r"\{edition-([^}]*)\}", plex_file or "")
+    return meta.get("editionTitle") or (m.group(1) if m else "")
+
+
 def parts(meta: dict) -> list[dict]:
     """Every single-file copy of a movie with its video facts and subtitle streams."""
     out = []
@@ -88,6 +94,8 @@ def parts(meta: dict) -> list[dict]:
         audio = [dict(index=s.get("index"), lang=s.get("languageCode")) for s in part.get("Stream", []) if s.get("streamType") == 2]
         out.append(dict(
             id=part["id"], file=local(part["file"]), size=part.get("size", 0), height=media.get("height") or 0,
+            width=media.get("width") or 0, rating_key=int(meta.get("ratingKey") or 0), edition=edition(meta, part["file"]),
+            duration=round((part.get("duration") or media.get("duration") or 0) / 1000, 2),
             resolution=media.get("videoResolution"), hdr=bool(video.get("DOVIPresent") or "smpte2084" in str(video.get("colorTrc", ""))
                                                                or "HDR" in str(video.get("displayTitle", ""))),
             dovi=bool(video.get("DOVIPresent")), subs=subs, audio=audio,
