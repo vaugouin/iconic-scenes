@@ -32,6 +32,14 @@ uv run iconic-scenes run tontons-flingueurs --speech   # speech recognition when
 uv run iconic-scenes report                      # rewrite site/index.html
 ```
 
+When the moment is already known, for example from an alignment of a film with its source novel ([source-to-screen](https://github.com/vaugouin/source-to-screen)), skip the line search and ask for the best still of a time span of one file:
+
+```bash
+uv run iconic-scenes still "T:/.../film.mkv" 0:37:43.8 0:37:46.9 --name war-room --out stills --pre 1 --post 1.5
+```
+
+It prints a JSON record (file, duration, span, still and runners-up, scores). The timecode is valid for that file only.
+
 The lines live in [`data/quotes.csv`](data/quotes.csv): an id, the title and year (or a TMDb ID when the title does not match), the language, who says it, the line, and optionally which occurrence to take.
 
 Plex is only read, never modified.

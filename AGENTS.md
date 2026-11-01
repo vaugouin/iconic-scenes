@@ -26,6 +26,10 @@ Famous movie line (`data/quotes.csv`) to best still from the Plex library (drive
 
 - **open-credits**: Plex URL, token and path map are read from `%LOCALAPPDATA%\opencredits\opencredits.env` (`PLEX_SERVER_URL`, `PLEX_TOKEN`, `OC_PATH_MAP`), and the TMDb-id-to-Plex index from `%LOCALAPPDATA%\opencredits\opencredits.sqlite` (table `plex_movie`, opened read-only). Override with `ICONIC_PLEX_ENV` and `ICONIC_PLEX_INDEX`. Never print or commit the token.
 
+## Span entry point (0.2.0)
+
+- `iconic-scenes still <file> <start> <end> --name <n> [--out <dir>] [--pre s] [--post s] [--alternates n]` and `pipeline.span_still()`: a fixed file and a time span in, the best still out, no Plex lookup and no subtitle search. Added 2026-11-01 for source-to-screen (APP-IDEAS-010 podcast). `run_one` and `span_still` share `pipeline.pick()`. Spans over 12 s are sampled more sparsely (about 60 frames, never fewer than one every 2 s).
+
 ## Pitfalls (measured)
 
 - **T: throughput varies tenfold with the NAS load**: 3 MB/s on 2026-10-29, 30 MB/s for one reader and about 60 MB/s for three on 2026-10-31 (a 2.7 GB copy demuxed in 46 s). Measure before concluding (`dd if=<file> of=/dev/null bs=4M count=50 skip=100`). Reading a whole file (embedded subtitle extraction, ASR audio) depends on it; a frame window reads only a few dozen MB. `pipeline.tracks()` tries sidecar files first, then embedded tracks smallest copy first, capped by `ICONIC_EMBEDDED_MAX` (30 GB, skips the 40 to 130 GB remuxes). For many lines, run three `run <ids>` processes in parallel.

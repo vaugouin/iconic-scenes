@@ -3,6 +3,7 @@ import csv
 import json
 import shutil
 import traceback
+from pathlib import Path
 
 import cv2
 
@@ -88,6 +89,48 @@ def save_still(src, crop, dest):
     cv2.imwrite(str(dest), img[y:y + h, x:x + w], [cv2.IMWRITE_JPEG_QUALITY, 92])
 
 
+def pick(video: str, a: float, b: float, name: str, img_dir, pre: float = PRE, post: float = POST,
+         fps: float = FPS, alternates: int = 2) -> dict | None:
+    """Best still (and runners-up at least a second apart) for the span a..b seconds of one file.
+    Writes <name>.jpg and <name>-altN.jpg into img_dir; returns what was picked, None when no frame came out."""
+    info = frames.probe(video)
+    work = config.WORK / "frames" / name
+    cand = frames.extract(video, a - pre, b + post, work, fps=fps, hdr=info["hdr"])
+    if not cand:
+        return None
+    best, details = score.choose(cand, (a, b))
+    order = sorted(range(len(details)), key=lambda i: -details[i]["total"])
+    picks = [best]
+    for i in order:
+        if len(picks) == alternates + 1:
+            break
+        if all(abs(details[i]["t"] - details[j]["t"]) >= 1.0 for j in picks):
+            picks.append(i)
+    img_dir = Path(img_dir)
+    img_dir.mkdir(parents=True, exist_ok=True)
+    names = []
+    for rank, i in enumerate(picks):
+        fname = f"{name}.jpg" if rank == 0 else f"{name}-alt{rank}.jpg"
+        save_still(cand[i][1], details[i]["crop"], img_dir / fname)
+        names.append(fname)
+    shutil.rmtree(work, ignore_errors=True)
+    return dict(hdr=info["hdr"], source_height=info["height"], frames=len(cand), still=names[0],
+                alternates=names[1:], best=details[best], picked=[details[i] for i in picks])
+
+
+def span_still(video: str, start: float, end: float, name: str, img_dir, pre: float = 0.0, post: float = 0.0,
+               fps: float = FPS, alternates: int = 2) -> dict:
+    """Entry point for callers that already know the moment (source-to-screen): a fixed file and a time span
+    in, the best still out. No Plex lookup and no subtitle search: the timecode is valid for this file only,
+    so the result names the file and its duration. Spans over 60 s are sampled more sparsely."""
+    length = max(0.0, end - start) + pre + post
+    rate = fps if length <= 12 else max(0.5, min(fps, 60 / max(length, 1e-6)))
+    picked = pick(video, start, end, name, img_dir, pre=pre, post=post, fps=rate, alternates=alternates)
+    info = frames.probe(video)
+    return dict(file=video, duration=info["duration"], start=start, end=end, fps=rate, name=name,
+                img_dir=str(img_dir), status="ok" if picked else "no frames", **(picked or {}))
+
+
 COPY_KEYS = ("id", "rating_key", "edition", "duration", "width", "height", "size", "file")
 
 
@@ -164,31 +207,12 @@ def run_one(q: dict, force: bool = False, embedded: bool = True, speech: bool = 
         part, stream, hit = found
         res.update(file=part["file"], copy_id=part["id"], track=dict(id=stream["id"], title=stream.get("title"), external=bool(stream.get("key"))),
                    match=hit)
-        info = frames.probe(part["file"])
         a, b = hit["start"], min(hit["end"], hit["start"] + 12)
-        work = config.WORK / "frames" / q["id"]
-        cand = frames.extract(part["file"], a - PRE, b + POST, work, fps=FPS, hdr=info["hdr"])
-        if not cand:
+        picked = pick(part["file"], a, b, q["id"], config.SITE / "img")
+        if not picked:
             res["status"] = "no frames"
             return res
-        best, details = score.choose(cand, (a, b))
-        order = sorted(range(len(details)), key=lambda i: -details[i]["total"])
-        picks = [best]
-        for i in order:                                    # two runners-up at least a second away from the others
-            if len(picks) == 3:
-                break
-            if all(abs(details[i]["t"] - details[j]["t"]) >= 1.0 for j in picks):
-                picks.append(i)
-        img_dir = config.SITE / "img"
-        img_dir.mkdir(parents=True, exist_ok=True)
-        names = []
-        for rank, i in enumerate(picks):
-            name = f"{q['id']}.jpg" if rank == 0 else f"{q['id']}-alt{rank}.jpg"
-            save_still(cand[i][1], details[i]["crop"], img_dir / name)
-            names.append(name)
-        res.update(status="ok", hdr=info["hdr"], source_height=info["height"], frames=len(cand), still=names[0],
-                   alternates=names[1:], best=details[best], picked=[details[i] for i in picks])
-        shutil.rmtree(work, ignore_errors=True)
+        res.update(status="ok", **picked)
     except Exception:                                      # noqa: BLE001 - keep the batch going, record why
         res["log"].append(traceback.format_exc(limit=3))
     finally:
